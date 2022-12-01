@@ -1,0 +1,3 @@
+#!/bin/bash
+#file -c -m school
+file -m school.mgc yourtestfile
