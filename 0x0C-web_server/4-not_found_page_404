@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Redirect unknown pages to a custom 404 page
+./1-install_nginx_web_server
+
+# Setup the custom error page
+sudo touch /var/www/html/error.html
+sudo echo "Ceci n'est pas une page" | sudo tee -a /var/www/html/error.html
+
+new_error_page="\tserver_name _;\n\terror_page 404 \/error.html;"
+sudo sed -i "s/\tserver_name _;/$new_error_page/" /etc/nginx/sites-available/default
+sudo sed -i "s/\tserver_name _;/$new_error_page/" /etc/nginx/sites-enabled/default
+sudo service nginx restart 

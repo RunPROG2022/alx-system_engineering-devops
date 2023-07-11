@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Backs up all MySQL databases into backup.sql sql dump and compresses it to a
+# gzipped tarball with the date as its name
+
+mysqldump -u root -p"$1" --all-databases > backup.sql
+printf -v date '%(%d-%m-%Y)T' -1
+tar -czvf "$date".tar.gz backup.sql

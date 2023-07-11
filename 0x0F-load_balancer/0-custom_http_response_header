@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Configure Nginx so that its HTTP response contains a
+# custom header (on both web-01 and web-02 servers) 
+
+# Clone my repo and setup the server
+git clone https://github.com/noahchernet/alx-system_engineering-devops/
+cd alx-system_engineering-devops/0x0C-web_server || exit
+./1-install_nginx_web_server
+./3-redirection
+./4-not_found_page_404
+
+# shellcheck disable=SC2116
+# shellcheck disable=SC2028
+new_url=$(echo "\tserver_name _;\n\tadd_header X-Served-By $HOSTNAME;")
+
+sudo sed -i "s/\tserver_name _;/$new_url/" /etc/nginx/sites-available/default
+sudo sed -i "s/\tserver_name _;/$new_url/" /etc/nginx/sites-enabled/default
+
+sudo service nginx restart

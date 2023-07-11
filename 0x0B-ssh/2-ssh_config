@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# Verbose output of connecting to server
+# My ssh client is configured to deny password login and looks for ssh key
+# in ~/.ssh/school
+OpenSSH_8.4p1 Ubuntu-6ubuntu2.1, OpenSSL 1.1.1l  24 Aug 2021
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 18.232.153.3 [18.232.153.3] port 22.
+debug1: Connection established.
+debug1: identity file /home/x/.ssh/school type 0
+debug1: identity file /home/x/.ssh/school-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_8.4p1 Ubuntu-6ubuntu2.1
+debug1: Remote protocol version 2.0, remote software version OpenSSH_8.2p1 Ubuntu-4ubuntu0.2
+debug1: match: OpenSSH_8.2p1 Ubuntu-4ubuntu0.2 pat OpenSSH* compat 0x04000000
+debug1: Authenticating to 18.232.153.3:22 as 'ubuntu'
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ecdsa-sha2-nistp256
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: Server host key: ecdsa-sha2-nistp256 SHA256:FlwbO+PbjOnOLzB81kM5egEqn8iwWsNv1RXlwoRah64
+debug1: Host '18.232.153.3' is known and matches the ECDSA host key.
+debug1: Found key in /home/x/.ssh/known_hosts:4
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 134217728 blocks
+debug1: Will attempt key: /home/x/.ssh/school RSA SHA256:UC14PxVninqHyu2ijYE6HwgHAVi8jQFJCejYpIXwxvU
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,sk-ssh-ed25519@openssh.com,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ecdsa-sha2-nistp256@openssh.com>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey
+debug1: Next authentication method: publickey
+debug1: Offering public key: /home/x/.ssh/school RSA SHA256:UC14PxVninqHyu2ijYE6HwgHAVi8jQFJCejYpIXwxvU
+debug1: Server accepts key: /home/x/.ssh/school RSA SHA256:UC14PxVninqHyu2ijYE6HwgHAVi8jQFJCejYpIXwxvU
+debug1: Authentication succeeded (publickey).
+Authenticated to 18.232.153.3 ([18.232.153.3]:22).
+debug1: channel 0: new [client-session]
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: network
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug1: Remote: /home/ubuntu/.ssh/authorized_keys:2: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug1: Remote: /home/ubuntu/.ssh/authorized_keys:2: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug1: Sending environment.
+debug1: Sending env LC_ADDRESS = am_ET
+debug1: Sending env LC_NAME = am_ET
+debug1: Sending env LC_MONETARY = en_US.UTF-8
+debug1: Sending env LC_PAPER = am_ET
+debug1: Sending env LANG = en_US.UTF-8
+debug1: Sending env LC_IDENTIFICATION = am_ET
+debug1: Sending env LC_TELEPHONE = am_ET
+debug1: Sending env LC_MEASUREMENT = en_GB.UTF-8
+debug1: Sending env LC_TIME = en_US.UTF-8
+debug1: Sending env LC_NUMERIC = en_US.UTF-8
