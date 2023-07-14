@@ -2,7 +2,7 @@ global
 	log /dev/log	local0
 	log /dev/log	local1 notice
 	chroot /var/lib/haproxy
-	stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+	stats socket /run/haproxy/admin.sock mode 660 level admin
 	stats timeout 30s
 	user haproxy
 	group haproxy
@@ -33,21 +33,18 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-# start of parameters for codapol.tech
-frontend codapol.tech-http-frontend
-	bind	 *:80
+frontend  ehoneah-frontend-http
+        bind *:80
+        mode http
 	http-request set-header X-Forwarded-Proto http
-	default_backend	 codapol.tech-backend
+        default_backend ehoneah-backend
 
-
-frontend  codapol.tech-https-frontend
-	bind *:443 ssl crt /etc/ssl/codapol.tech.pem
+frontend ehoneah-frontend-https
+	bind *:443 ssl crt /etc/haproxy/certs/www.ehoneah.tech.pem
 	http-request set-header X-Forwarded-Proto https
-        default_backend codapol.tech-backend
+	default_backend ehoneah-backend
 
-
-backend codapol.tech-backend
+backend ehoneah-backend
         balance roundrobin
-        server 61823-web-01 18.207.235.185:80 check
-        server 61823-web-02 52.86.253.177:80 check
-# end of parameters
+        server 63210-web-01 100.25.19.204:80 check
+        server 63210-web-02 54.157.159.85:80 check
